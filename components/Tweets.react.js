@@ -3,7 +3,7 @@
 var React = require('react');
 var Tweet = require('./Tweet.react.js');
 
-module.exports = Tweets = React.createClass({
+module.exports class Tweets ({
 
   // Render our tweets
   render: function(){
@@ -22,4 +22,4 @@ module.exports = Tweets = React.createClass({
 
   }
 
-}); 
+});

@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-module.exports = NotificationBar = React.createClass({
+module.exports class NotificationBar ({
   render: function(){
     var count = this.props.count;
     return (

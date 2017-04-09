@@ -6,10 +6,10 @@ var Loader = require('./Loader.react.js');
 var NotificationBar = require('./NotificationBar.react.js');
 
 // Export the TweetsApp component
-module.exports = TweetsApp = React.createClass({
+class TweetsApp {
 
   // Method to add a tweet to our timeline
-  addTweet: function(tweet){
+  addTweet(tweet){
 
     // Get current application state
     var updated = this.state.tweets;
@@ -29,7 +29,7 @@ module.exports = TweetsApp = React.createClass({
   },
 
   // Method to get JSON from server by page
-  getPage: function(page){
+  getPage(page){
 
     // Setup our ajax request
     var request = new XMLHttpRequest(), self = this;
@@ -56,7 +56,7 @@ module.exports = TweetsApp = React.createClass({
   },
 
   // Method to show the unread tweets
-  showNewTweets: function(){
+  showNewTweets(){
 
     // Get current application state
     var updated = this.state.tweets;
@@ -72,7 +72,7 @@ module.exports = TweetsApp = React.createClass({
   },
 
   // Method to load tweets fetched from the server
-  loadPagedTweets: function(tweets){
+   loadPagedTweets(tweets){
 
     // So meta lol
     var self = this;
@@ -106,7 +106,7 @@ module.exports = TweetsApp = React.createClass({
   },
 
   // Method to check if more tweets should be loaded, by scroll position
-  checkWindowScroll: function(){
+  checkWindowScroll(){
 
     // Get scroll pos & window data
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -126,7 +126,7 @@ module.exports = TweetsApp = React.createClass({
   },
 
   // Set the initial component state
-  getInitialState: function(props){
+  getInitialState(props){
 
     props = props || this.props;
 
@@ -142,12 +142,12 @@ module.exports = TweetsApp = React.createClass({
 
   },
 
-  componentWillReceiveProps: function(newProps, oldProps){
+  componentWillReceiveProps(newProps, oldProps){
     this.setState(this.getInitialState(newProps));
   },
 
   // Called directly after component rendering, only on client
-  componentDidMount: function(){
+  componentDidMount(){
 
     // Preserve self reference
     var self = this;
@@ -169,7 +169,7 @@ module.exports = TweetsApp = React.createClass({
   },
 
   // Render the component
-  render: function(){
+  render(){
 
     return (
       <div className="tweets-app">
@@ -181,4 +181,6 @@ module.exports = TweetsApp = React.createClass({
 
   }
 
-});
+};
+
+module.exports = TweetsApp;
